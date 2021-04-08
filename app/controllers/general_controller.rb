@@ -2,19 +2,26 @@ class GeneralController < ApplicationController
   def index
   end
 
+  def show
+    @characters = find_character(params[:id])
+  end
+
   def search
     puts params
-    @character = find_character(params[:character])
+    @characters = find_characters(params[:character])
+    @characters = @characters["data"]['results']
 
-    unless @character
+    unless @characters
       flash[:alert] = 'Character not found'
       return render action: :index
     end
   end
 
+
+
   private
 
-  def request_api(url, dict)
+  def request_api(url, dict={})
     # API Login info
     query = {
       ts: Rails.application.credentials.marvel[:TS],
@@ -31,14 +38,24 @@ class GeneralController < ApplicationController
     )
 
     puts JSON.parse(response.body)
+
     return nil if response.status != 200
+
     JSON.parse(response.body)
   end
-  def find_character(character)
-    char_hash = {name: character}
+
+
+  def find_characters(usr_input)
+    char_hash = {nameStartsWith: usr_input}
     request_api(
       "https://gateway.marvel.com:443/v1/public/characters",
-      {name: character}
+      char_hash
+    )
+  end
+
+  def find_character(id)
+    request_api(
+      "https://gateway.marvel.com:443/v1/public/characters/#{id}"
     )
   end
 end

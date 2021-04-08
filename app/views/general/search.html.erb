@@ -1,11 +1,8 @@
-<div class="character d-flex">
-  <div class="visual">
-    <img src="<%= @character["data"]['results'][0]["thumbnail"]["path"] %>.jpg" alt="">
-    <%= @character["data"]['results'][0]['name'] %>
-  </div>
-  <div class="bio">
-    <%= @character["data"]['results'][0]['description'] %>
-  </div>
-
-
+<div class="character d-flex flex-wrap justify-content-around pt-4">
+  <% @characters.each do |char| %>
+    <a href="<%= character_path(char['id']) %>" class="d-flex flex-column px-3">
+      <img class="avatar-large" src="<%= char["thumbnail"]["path"] %>.jpg" alt="">
+      <p class="py-2 text-center"><%= char['name'] %></p>
+    </a>
+  <% end %>
 </div>

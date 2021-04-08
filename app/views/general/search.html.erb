@@ -1,0 +1,11 @@
+<div class="character d-flex">
+  <div class="visual">
+    <img src="<%= @character["data"]['results'][0]["thumbnail"]["path"] %>.jpg" alt="">
+    <%= @character["data"]['results'][0]['name'] %>
+  </div>
+  <div class="bio">
+    <%= @character["data"]['results'][0]['description'] %>
+  </div>
+
+
+</div>

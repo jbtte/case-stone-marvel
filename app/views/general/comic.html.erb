@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+  <div class="char-info d-flex flex-fill">
+    <div class="photo">
+      <img class="avatar-bio" src="<%= @comic["thumbnail"]["path"] %>.jpg" alt="">
+    </div>
+    <div class="bio d-flex pl-5">
+      <div class="card bg-dark text-white align-self-center">
+        <p class="card-text">
+          <%= @comic["description"] %>
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="comic-books mt-4">
+
+  </div>
+    <h5>Characters</h5>
+    <div class="comic d-flex flex-wrap justify-content-around pt-4">
+      <% @comic["characters"]["items"].each do |char| %>
+        <a href="<%= character_path(char['resourceURI'].split('/')[-1]) %>" class="d-flex flex-column px-3">
+          <p><%= char["name"] %></p>
+        </a>
+      <% end %>
+    </div>
+</div>

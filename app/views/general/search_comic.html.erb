@@ -1,0 +1,8 @@
+<div class="comic-search d-flex flex-wrap justify-content-around pt-4">
+  <% @comics.each do |comic| %>
+    <a href="<%= comic_path(comic['id']) %>" class="d-flex flex-column px-3">
+      <img class="avatar-large" src="<%= comic["thumbnail"]["path"] %>.jpg" alt="">
+      <p class="py-2 text-center"><%= comic['title'] %></p>
+    </a>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container my-4">
   <h2 class="text-center mx-5"><%= @comic['title']%></h2>
   <div class="char-info d-flex flex-fill">
     <div class="photo">
@@ -14,9 +14,7 @@
 
   </div>
   <hr>
-  <div class="comic-books mt-4">
-
-  </div>
+  <div class="comic-books my-4">
     <h5>Characters</h5>
     <div class="comic d-flex flex-wrap justify-content-around pt-4">
       <% @comic["characters"]["items"].each do |char| %>
@@ -25,4 +23,7 @@
         </a>
       <% end %>
     </div>
+
+  </div>
+
 </div>

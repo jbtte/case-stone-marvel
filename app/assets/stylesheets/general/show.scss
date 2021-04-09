@@ -4,5 +4,31 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow:auto
+}
 
+.show-comics {
+  background: linear-gradient(90deg, rgba(0,0,0,0.6839110644257703) 0%, rgba(0,0,0,0.6587009803921569) 52%, rgba(0,0,0,0.7511379551820728) 100%), url("https://wallpaper.dog/large/17126921.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto
+}
+
+.show > .container {
+  width: 60%;
+  float: right;
+}
+
+.bio > .card {
+  background-color: #212121;
+}
+
+hr {
+  border: 1px solid white;
+}
+
+.top{
+  padding-top: 40px;
 }

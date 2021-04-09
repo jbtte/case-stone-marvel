@@ -1,6 +1,6 @@
-<div class="show">
-  <div class="container mt-4">
-    <div class="top">
+<div class="show show-character" >
+  <div class="container mt-4 ">
+    <div class="top my-4">
       <div class="favorite-form">
         <% if @favorite.empty? %>
         <%= form_for(@favorite_new, remote: true) do |f| %>
@@ -17,32 +17,33 @@
         data: { confirm: "Are you sure?" } %>
         <% end %>
       </div>
-      <h2 class="text-center mx-5"><%= @character['name']%></h2>
+      <h1 class="text-center text-white m-5"><%= @character['name']%></h1>
     </div>
-    <div class="char-info d-flex flex-fill flex-row-reverse">
-      <div class="photo">
+    <div class="char-info d-flex flex-fill">
+      <div class="photo mx-auto">
         <img class="avatar-bio" src="<%= @character["thumbnail"]["path"] %>.jpg" alt="">
       </div>
-      <div class="bio d-flex pl-5">
-        <div class="card bg-dark text-white align-self-center">
-          <p class="card-text">
-            <%= @character["description"] %>
-          </p>
+      <% unless @character["description"].empty? %>
+        <div class="bio d-flex px-5">
+          <div class="card text-white align-self-center px-4 py-3 rounded">
+            <p class="card-text text-center">
+              <%= @character["description"] %>
+            </p>
+          </div>
         </div>
-      </div>
+      <% end %>
 
     </div>
     <hr>
     <div class="comic-books mt-4">
-
+      <h3 class="text-white text-center">Comic books</h3>
+      <ul class="mr-5 mb-5">
+        <% @character['comics']['items'].each do |book| %>
+        <li>
+          <%= link_to book['name'], comic_path(book['resourceURI'].split('/')[-1]) %>
+        </li>
+        <% end %>
+      </ul>
     </div>
-    <h5>Comic books</h5>
-    <ul class="list-group mr-5 mb-5">
-      <% @character['comics']['items'].each do |book| %>
-      <li class="list-group-item">
-        <%= link_to book['name'], comic_path(book['resourceURI'].split('/')[-1]) %>
-      </li>
-      <% end %>
-    </ul>
   </div>
 </div>

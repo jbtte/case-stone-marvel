@@ -1,11 +1,11 @@
 <div class="container d-flex justify-content-around my-5">
   <div class="character-favorite">
-    <h2 class="mb-3">Character</h2>
+    <h2 class="my-3">Character</h2>
     <div class="list">
       <% @favorites.each do |favorite|%>
         <% if favorite['character'] %>
         <a href="<%= character_path(favorite['number']) %>" class="d-flex flex-column px-3">
-          <img class="avatar-large" src="<%= favorite["url"] %>.jpg" alt="">
+          <img class="avatar" src="<%= favorite["url"] %>.jpg" alt="">
           <p class="py-2 text-center"><%= favorite['name'] %></p>
         </a>
         <% end %>
@@ -14,12 +14,12 @@
   </div>
 
   <div class="comic-favorite">
-    <h2 class="mb-3">Comic Book</h2>
+    <h2 class="my-3">Comic Book</h2>
     <div class="list">
       <% @favorites.each do |favorite|%>
         <% unless favorite['character'] %>
         <a href="<%= comic_path(favorite['number']) %>" class="d-flex flex-column px-3">
-          <img class="avatar-large" src="<%= favorite["url"] %>.jpg" alt="">
+          <img class="avatar" src="<%= favorite["url"] %>.jpg" alt="">
           <p class="py-2 text-center"><%= favorite['name'] %></p>
         </a>
         <% end %>

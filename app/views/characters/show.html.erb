@@ -1,7 +1,8 @@
-<div class="container mt-4">
-  <div class="top">
-    <div class="favorite">
-      <% if @favorite.empty? %>
+<div class="show">
+  <div class="container mt-4">
+    <div class="top">
+      <div class="favorite-form">
+        <% if @favorite.empty? %>
         <%= form_for(@favorite_new, remote: true) do |f| %>
         <%= hidden_field_tag "name", @character['name'] %>
         <%= hidden_field_tag "number", @character['id'] %>
@@ -9,38 +10,39 @@
         <%= hidden_field_tag "character", true %>
         <%= f.submit %>
         <% end %>
-      <% else %>
+        <% else %>
         <%= link_to "Unfollow",
         favorite_path(@favorite[0]),
         method: :delete,
         data: { confirm: "Are you sure?" } %>
-      <% end %>
-    </div>
-    <h2 class="text-center mx-5"><%= @character['name']%></h2>
-  </div>
-  <div class="char-info d-flex flex-fill">
-    <div class="photo">
-      <img class="avatar-bio" src="<%= @character["thumbnail"]["path"] %>.jpg" alt="">
-    </div>
-    <div class="bio d-flex pl-5">
-      <div class="card bg-dark text-white align-self-center">
-        <p class="card-text">
-          <%= @character["description"] %>
-        </p>
+        <% end %>
       </div>
+      <h2 class="text-center mx-5"><%= @character['name']%></h2>
     </div>
+    <div class="char-info d-flex flex-fill flex-row-reverse">
+      <div class="photo">
+        <img class="avatar-bio" src="<%= @character["thumbnail"]["path"] %>.jpg" alt="">
+      </div>
+      <div class="bio d-flex pl-5">
+        <div class="card bg-dark text-white align-self-center">
+          <p class="card-text">
+            <%= @character["description"] %>
+          </p>
+        </div>
+      </div>
 
-  </div>
-  <hr>
-  <div class="comic-books mt-4">
+    </div>
+    <hr>
+    <div class="comic-books mt-4">
 
-  </div>
+    </div>
     <h5>Comic books</h5>
     <ul class="list-group mr-5 mb-5">
       <% @character['comics']['items'].each do |book| %>
       <li class="list-group-item">
         <%= link_to book['name'], comic_path(book['resourceURI'].split('/')[-1]) %>
       </li>
-    <% end %>
+      <% end %>
     </ul>
+  </div>
 </div>

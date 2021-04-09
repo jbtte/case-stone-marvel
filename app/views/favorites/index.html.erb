@@ -1,31 +1,31 @@
-<div class="container d-flex justify-content-around my-5">
-  <div class="character-favorite">
-    <h2 class="my-3">Character</h2>
-    <div class="list">
-      <% @favorites.each do |favorite|%>
-        <% if favorite['character'] %>
-        <a href="<%= character_path(favorite['number']) %>" class="d-flex flex-column px-3">
-          <img class="avatar" src="<%= favorite["url"] %>.jpg" alt="">
-          <p class="py-2 text-center"><%= favorite['name'] %></p>
-        </a>
+<div class="favorite">
+  <div class="container d-flex flex-row-reverse  my-5">
+    <div class="character-favorite">
+      <h2 class="my-5 text-white text-center">Characters</h2>
+      <div class="list">
+        <% @favorites.each do |favorite|%>
+          <% if favorite['character'] %>
+          <a href="<%= character_path(favorite['number']) %>" class="d-flex flex-column px-3">
+            <img class="avatar mx-auto px-auto" src="<%= favorite["url"] %>.jpg" alt="">
+            <p class="py-2 text-center"><%= favorite['name'] %></p>
+          </a>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+
+    <div class="comic-favorite">
+      <h2 class="my-5 text-white text-center">Comic Books</h2>
+      <div class="list">
+        <% @favorites.each do |favorite|%>
+          <% unless favorite['character'] %>
+          <a href="<%= comic_path(favorite['number']) %>" class="d-flex flex-column px-3">
+            <img class="avatar mx-auto px-auto" src="<%= favorite["url"] %>.jpg" alt="">
+            <p class="py-2 text-center"><%= favorite['name'] %></p>
+          </a>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-  <div class="comic-favorite">
-    <h2 class="my-3">Comic Book</h2>
-    <div class="list">
-      <% @favorites.each do |favorite|%>
-        <% unless favorite['character'] %>
-        <a href="<%= comic_path(favorite['number']) %>" class="d-flex flex-column px-3">
-          <img class="avatar" src="<%= favorite["url"] %>.jpg" alt="">
-          <p class="py-2 text-center"><%= favorite['name'] %></p>
-        </a>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-
 </div>

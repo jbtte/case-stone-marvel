@@ -15,7 +15,8 @@ class CharactersController < ApplicationController
 
   def show
     @character = find_character(params[:id])["data"]['results'][0]
-    @favorite = Favorite.new
+    @favorite_new = Favorite.new
+    @favorite = Favorite.where(user_id: current_user, number:params[:id])
   end
 
   private

@@ -12,7 +12,8 @@ class ComicsController < ApplicationController
 
   def show
     @comic = find_comic(params[:id])["data"]['results'][0]
-    @favorite = Favorite.new
+    @favorite_new = Favorite.new
+    @favorite = Favorite.where(user_id: current_user, number:params[:id])
   end
 
   private

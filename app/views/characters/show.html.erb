@@ -1,5 +1,13 @@
 <div class="container mt-4">
-  <h2 class="text-center mx-5"><%= @character['name']%></h2>
+  <div class="top">
+    <%= form_for(@favorite) do |f| %>
+      <%= hidden_field_tag "name", @character['name'] %>
+      <%= hidden_field_tag "number", @character['id'] %>
+      <%= hidden_field_tag "character", true %>
+      <%= f.submit %>
+    <% end %>
+    <h2 class="text-center mx-5"><%= @character['name']%></h2>
+  </div>
   <div class="char-info d-flex flex-fill">
     <div class="photo">
       <img class="avatar-bio" src="<%= @character["thumbnail"]["path"] %>.jpg" alt="">

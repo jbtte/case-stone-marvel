@@ -1,5 +1,13 @@
 <div class="container my-4">
-  <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+  <div class="top">
+    <%= form_for(@favorite) do |f| %>
+      <%= hidden_field_tag "name", @comic['title'] %>
+      <%= hidden_field_tag "number", @comic['id'] %>
+      <%= hidden_field_tag "character", false %>
+      <%= f.submit %>
+    <% end %>
+    <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+  </div>
   <div class="char-info d-flex flex-fill">
     <div class="photo">
       <img class="avatar-bio" src="<%= @comic["thumbnail"]["path"] %>.jpg" alt="">

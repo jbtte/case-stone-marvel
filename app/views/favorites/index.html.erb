@@ -1,0 +1,29 @@
+<div class="container d-flex justify-content-around my-5">
+  <div class="character-favorite">
+    <h2 class="mb-3">Character</h2>
+    <div class="list">
+      <% @favorites.each do |favorite|%>
+        <% if favorite['character'] %>
+        <li class="list-group-item">
+          <%= link_to favorite['name'], character_path(favorite['number']) %>
+        </li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="comic-favorite">
+    <h2 class="mb-3">Comic Book</h2>
+    <div class="list">
+      <% @favorites.each do |favorite|%>
+        <% unless favorite['character'] %>
+        <li class="list-group-item">
+          <%= link_to favorite['name'], comic_path(favorite['number']) %>
+        </li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>

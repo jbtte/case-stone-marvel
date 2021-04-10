@@ -6,13 +6,6 @@ class CharactersController < ApplicationController
 
   def index
     @characters = find_characters(params[:character])["data"]['results']
-
-    puts @characters
-
-    # unless @characters
-    #   flash[:alert] = 'Character not found'
-    #   return render action: :index
-    # end
   end
 
   def show

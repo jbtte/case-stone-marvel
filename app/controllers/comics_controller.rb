@@ -3,11 +3,6 @@ class ComicsController < ApplicationController
 
   def index
     @comics = find_comics(params[:comic])["data"]['results']
-
-    unless @comics
-      flash[:alert] = 'Comic Book not found'
-      return render action: :index
-    end
   end
 
   def show

@@ -7,8 +7,8 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     @favorite.user_id = current_user.id
 
-    if @favorite.save!
-      flash[:alert] = 'Saved'
+    unless @favorite.save!
+      flash[:alert] = 'Not Saved'
     end
   end
 

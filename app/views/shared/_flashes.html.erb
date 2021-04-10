@@ -5,6 +5,9 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <script>
+    setTimeout("$('.alert-info').fadeOut('slow')", 5000)
+  </script>
 <% end %>
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
@@ -13,4 +16,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+  <script>
+    setTimeout("$('.alert-warning').fadeOut('slow')", 5000)
+  </script>
 <% end %>

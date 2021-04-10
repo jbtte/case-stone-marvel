@@ -1,9 +1,12 @@
 <div class="home">
-  <div class="container">
+  <div class="container d-flex flex-column">
+    <div class="logo-img d-flex adjust-content-around flex-grow-1">
+      <%= image_tag ("my_marvel.png") %>
+    </div>
     <div class="search row d-flex justify-content-around align-items-end">
 
-      <div class="search-card col-lg-5 mt-5 pb-5">
-        <div class="px-3 py-3 mx-auto mt-5 rounded" style="width: 400px">
+      <div class="search-card col-lg-5 pb-5">
+        <div class="px-3 py-3 mx-auto rounded" style="width: 400px">
           <%= form_with(url: characters_path, method: 'get', local: true) do %>
           <div class="form-group">
             <%= label_tag :character, 'Search by Character'%>
@@ -14,13 +17,13 @@
         </div>
       </div>
 
-      <div class="col-lg-2 mt-5 pb-5">
+      <div class="col-lg-2 pb-5">
         <h4 class="text-white text-center mb-5">or</h4>
       </div>
 
 
-      <div class="search-card col-lg-5 mt-5 pb-5">
-        <div class="px-3 py-3 mx-auto mt-5 rounded" style="width: 400px">
+      <div class="search-card col-lg-5 pb-5">
+        <div class="px-3 py-3 mx-auto rounded" style="width: 400px">
           <%= form_with(url: comics_path, method: 'get', local: true) do %>
           <div class="form-group">
             <%= label_tag :comics, 'Search by Comic Book title'%>

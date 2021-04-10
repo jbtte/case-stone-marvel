@@ -1,10 +1,14 @@
-<div class="index">
-  <div class="character d-flex flex-wrap justify-content-around pt-5 mt-5">
-    <% @characters.each do |char| %>
-    <a href="<%= character_path(char['id']) %>" class="d-flex flex-column px-3">
-      <img class="avatar-large" src="<%= char["thumbnail"]["path"] %>.jpg" alt="">
-      <p class="py-2 text-center"><%= char['name'] %></p>
-    </a>
-    <% end %>
+<% unless @characters.any? %>
+  <%= render "shared/noresult" %>
+<% else %>
+  <div class="index">
+    <div class="character d-flex flex-wrap justify-content-around pt-5 mt-5">
+      <% @characters.each do |char| %>
+      <a href="<%= character_path(char['id']) %>" class="d-flex flex-column px-3">
+        <img class="avatar-large" src="<%= char["thumbnail"]["path"] %>.jpg" alt="">
+        <p class="py-2 text-center"><%= char['name'] %></p>
+      </a>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

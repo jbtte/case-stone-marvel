@@ -1,6 +1,8 @@
 <div class="show show-comics">
   <div class="container mt-4">
-    <div class="top my-4">
+    <div class="top my-4" d-flex" data-controller="favorite">
+      <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+
       <div class="favorite-form">
         <% if @favorite.empty? %>
           <%= form_for(@favorite_new, remote: true) do |f| %>
@@ -17,7 +19,7 @@
           data: { confirm: "Are you sure?" } %>
         <% end %>
       </div>
-      <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+
     </div>
     <div class="char-info d-flex flex-fill">
       <div class="photo mx-auto">

@@ -13,8 +13,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(params[:id])
-    @favorite.destroy!
+    @favorite = Favorite.where(number: params["id"])
+    @favorite[0].destroy!
 
   end
 

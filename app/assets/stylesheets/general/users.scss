@@ -1,0 +1,22 @@
+.profile {
+  background: url("https://cutewallpaper.org/21/spiderman-black-background/Back-to-formula-with-this-classic-suit-and-black-background-.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto
+}
+.edit-profile {
+  float:left;
+  padding-top: 100px;
+  padding-left: 60px;
+  width: 32rem;
+}
+
+.card-profile {
+  background-color: #212121;
+
+  & h2 {
+    color: white;
+  }
+}

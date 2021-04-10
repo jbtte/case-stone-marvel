@@ -4,19 +4,40 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  overflow:auto
+  overflow:auto;
 }
 .edit-profile {
-  float:left;
   padding-top: 100px;
-  padding-left: 60px;
   width: 32rem;
+  z-index: 5;
 }
 
-.card-profile {
+.right-card {
+  float:left;
+  padding-left: 60px;
+}
+
+.card-black {
   background-color: #212121;
 
   & h2 {
     color: white;
   }
+}
+
+.login {
+  background: url(asset_path("login_page.jpg")) no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow:auto;
+}
+
+.btn-big {
+  padding: 10px 160px;
+}
+
+.signup {
+  padding: 20px 20px 20px 0px;
 }

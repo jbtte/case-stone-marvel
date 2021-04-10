@@ -3,7 +3,9 @@
   background-color: #212121;
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
+  z-index: 1;
+  overflow: visible;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,7 +13,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 70px;
+  width: 140px;
+
 }
 
 .navbar-lewagon .profile{

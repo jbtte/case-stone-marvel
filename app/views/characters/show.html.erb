@@ -6,13 +6,13 @@
       <div class="favorite-form mr-5">
         <div class="not-favorited" data-favorite-target="notFav" <%= "hidden" if !@favorite.empty? %>>
           <%= form_for(@favorite_new, remote: true) do |f| %>
-          <%= hidden_field_tag "name", @character['name'] %>
-          <%= hidden_field_tag "number", @character['id'] %>
-          <%= hidden_field_tag "url", @character["thumbnail"]["path"] %>
-          <%= hidden_field_tag "character", true %>
-          <%= button_tag type: 'submit', class: "my-button border-0", id: "register-button", "data-action" => 'click->favorite#refresh' do %>
-            <i class="far fa-heart fa-2x heart-red"></i>
-          <% end %>
+            <%= hidden_field_tag "name", @character['name'] %>
+            <%= hidden_field_tag "number", @character['id'] %>
+            <%= hidden_field_tag "url", @character["thumbnail"]["path"] %>
+            <%= hidden_field_tag "character", true %>
+            <%= button_tag type: 'submit', class: "my-button border-0", id: "register-button", "data-action" => 'click->favorite#refresh' do %>
+              <i class="far fa-heart fa-2x heart-red"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="favorited" <%= "hidden" if @favorite.empty? %> data-favorite-target="faved">
@@ -23,10 +23,9 @@
           <i class="fas fa-heart fa-2x heart-red"></i>
           <% end %>
         </div>
-
       </div>
-
     </div>
+
     <div class="char-info d-flex flex-fill">
       <div class="photo mx-auto">
         <img class="avatar-bio" src="<%= @character["thumbnail"]["path"] %>.jpg" alt="">
@@ -40,7 +39,6 @@
           </div>
         </div>
       <% end %>
-
     </div>
     <hr>
     <div class="comic-books mt-4">

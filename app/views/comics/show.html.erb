@@ -1,26 +1,31 @@
 <div class="show show-comics">
   <div class="container mt-4">
-    <div class="top my-4" d-flex" data-controller="favorite">
-      <h2 class="text-center mx-5"><%= @comic['title']%></h2>
+    <div class="top my-4 d-flex" data-controller="favorite">
+      <h2 class="text-center text-white flex-grow-1 mx-5"><%= @comic['title']%></h2>
 
-      <div class="favorite-form">
-        <% if @favorite.empty? %>
+      <div class="favorite-form mr-5">
+        <div class="not-favorited" data-favorite-target="notFav" <%= "hidden" if !@favorite.empty? %>>
           <%= form_for(@favorite_new, remote: true) do |f| %>
-          <%= hidden_field_tag "name", @comic['title'] %>
-          <%= hidden_field_tag "number", @comic['id'] %>
-          <%= hidden_field_tag "url", @comic["thumbnail"]["path"] %>
-          <%= hidden_field_tag "character", false %>
-          <%= f.submit %>
-        <% end %>
-        <% else %>
-          <%= link_to "Unfollow",
-          favorite_path(@favorite[0]),
+            <%= hidden_field_tag "name", @comic['title'] %>
+            <%= hidden_field_tag "number", @comic['id'] %>
+            <%= hidden_field_tag "url", @comic["thumbnail"]["path"] %>
+            <%= hidden_field_tag "character", false %>
+            <%= button_tag type: 'submit', class: "my-button border-0", id: "register-button", "data-action" => 'click->favorite#refresh' do %>
+              <i class="far fa-heart fa-2x heart-red"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="favorited" <%= "hidden" if @favorite.empty? %> data-favorite-target="faved">
+          <%= link_to favorite_path(@comic["id"]),
           method: :delete,
-          data: { confirm: "Are you sure?" } %>
-        <% end %>
+          data: { confirm: "Are you sure?" },
+          "data-action" => 'click->favorite#refresh' do %>
+          <i class="fas fa-heart fa-2x heart-red"></i>
+          <% end %>
+        </div>
       </div>
-
     </div>
+
     <div class="char-info d-flex flex-fill">
       <div class="photo mx-auto">
         <img class="avatar-bio" src="<%= @comic["thumbnail"]["path"] %>.jpg" alt="">

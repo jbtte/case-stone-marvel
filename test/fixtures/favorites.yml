@@ -1,0 +1,13 @@
+character_favorite:
+  name: "Captain America"
+  character: true
+  user_id: 5
+  number: 876890
+  url: "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087.jpg"
+
+comic_favorite:
+  name: "A+X (2012) #1"
+  character: false
+  user_id: 5
+  number: 876890
+  url: "http://i.annihil.us/u/prod/marvel/i/mg/7/20/584f0b479c3f8.jpg"

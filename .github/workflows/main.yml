@@ -30,10 +30,10 @@ jobs:
           cmd: install
       - name: Build and run test
         env:
-          POSTGRES_DATABASE: postgres
-          POSTGRES_HOST: localhost
+          POSTGRES_DATABASE: _marvel_stone_app_test
+          #POSTGRES_HOST: localhost
           # DATABASE_URL: postgres://postgres:@localhost:5432/test
-          # REDIS_URL: redis://localhost:6379/0
+          REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres

@@ -28,14 +28,14 @@
             <%= f.input :password_confirmation,
             required: true,
             input_html: { autocomplete: "new-password" } %>
+            <div class="form-actions pt-4">
+              <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-big' %>
+            </div>
+            <% end %>
           </div>
         </div>
         <div class="card-body signup">
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-big' %>
-          </div>
-          <% end %>
-          <div class="mt-4">
+          <div class="">
             <%= render "devise/shared/links" %>
           </div>
         </div>

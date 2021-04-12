@@ -1,0 +1,14 @@
+default :  & default
+  adapter :  postgresql
+  encoding :  Utf8mb4
+  charset :  Utf8mb4
+  collation :  Utf8mb4_general_ci
+  pool :  <% = ENV.Fetch ( "RAILS_MAX_THREADS") {5}%>
+  host :  127.0.0.1
+  port :  3306
+  username :  root
+  password :
+
+test :
+  << :  * default
+  database :  _marvel_stone_app_test

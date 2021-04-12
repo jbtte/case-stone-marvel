@@ -3,8 +3,6 @@
     <div class="top my-4 d-flex" data-controller="favorite">
       <h1 class="text-center text-white flex-grow-1"><%= @character['name']%></h1>
       <%= render partial: "shared/favorite", locals: { name: @character['name'], char: true, model: @character } %>
-
-    
     </div>
 
     <div class="char-info d-flex flex-fill">
@@ -22,7 +20,7 @@
       <% end %>
     </div>
     <hr>
-    <div class="comic-books mt-4">
+    <div class="comic-books my-4 pb-4">
       <h3 class="text-white text-center">Comic books</h3>
       <ul class="mr-5 mb-5">
         <% @character['comics']['items'].each do |book| %>

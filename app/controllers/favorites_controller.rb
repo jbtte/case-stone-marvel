@@ -7,15 +7,12 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     @favorite.user_id = current_user.id
 
-    unless @favorite.save!
-      flash[:alert] = 'Not Saved'
-    end
+    flash[:alert] = 'Not Saved' unless @favorite.save!
   end
 
   def destroy
     @favorite = Favorite.where(number: params["id"])
     @favorite[0].destroy!
-
   end
 
   private

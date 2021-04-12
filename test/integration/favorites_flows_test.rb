@@ -62,6 +62,4 @@ class FavoritesFlowsTest < ActionDispatch::IntegrationTest
     assert_equal 200, status
     assert_select "p", "Captain America"
   end
-
-
 end

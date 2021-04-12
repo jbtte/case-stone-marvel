@@ -1,10 +1,10 @@
 module ApiCall
-  def request_api(url, dict={})
+  def request_api(url, dict = {})
     # API Login info
     query = {
       ts: Rails.application.credentials.marvel[:TS],
       apikey: Rails.application.credentials.marvel[:API_KEY],
-      hash: Rails.application.credentials.marvel[:HASH],
+      hash: Rails.application.credentials.marvel[:HASH]
     }
 
     # Specific information of the query is added

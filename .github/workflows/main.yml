@@ -30,13 +30,13 @@ jobs:
           cmd: install
       - name: Build and run test
         env:
-          POSTGRES_DATABASE: _marvel_stone_app_test
-          #POSTGRES_HOST: localhost
+          PG_DATABASE: _marvel_stone_app_test
+          PG_HOST: localhost
           # DATABASE_URL: postgres://postgres:@localhost:5432/test
-          REDIS_URL: redis://localhost:6379/0
+          #REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          PG_USER: postgres
+          PG_PASSWORD: postgres
           WITH_COVERAGE: true
         run: |
           sudo apt-get -yqq install libpq-dev

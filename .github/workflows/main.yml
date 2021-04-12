@@ -25,9 +25,6 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.6.x
-      - name: Install PostgreSQL 12 client
-      run: |
-        sudo apt-get -yqq install libpq-dev
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install

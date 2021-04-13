@@ -8,9 +8,7 @@ jobs:
         image: postgres:12
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_ALLOW_EMPTY_PASSWORD :  Yes
+          POSTGRES_PASSWORD: <%= ENV['_MARVEL_STONE_APP_DATABASE_PASSWORD'] %>
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -28,6 +26,7 @@ jobs:
       - name: Build and run test
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
+          PG_PASSWORD: <%= ENV['_MARVEL_STONE_APP_DATABASE_PASSWORD'] %>
           RAILS_ENV: test
         run: |
           sudo apt-get -yqq install libpq-dev

@@ -25,7 +25,10 @@ jobs:
         with:
           cmd: install
       - name: Install postgres
-        run: sudo apt-get -yqq install libpq-dev
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          sudo service postgresql start
+          sudo -u postgres createuser --superuser "$USER"
       - name: Install dependencies
         run: |
           gem install bundler

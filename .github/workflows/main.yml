@@ -4,11 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     services:
-      db:
-        image: postgres:12
+      postgres:
+        image: postgres:13
         ports: ["5432:5432"]
         env:
-          POSTGRES_PASSWORD: <%= ENV['_MARVEL_STONE_APP_DATABASE_PASSWORD'] %>
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -23,15 +24,23 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - name: Build and run test
-        env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
-          PG_PASSWORD: <%= ENV['_MARVEL_STONE_APP_DATABASE_PASSWORD'] %>
-          RAILS_ENV: test
+      - name: Install postgres
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Install dependencies
         run: |
-          sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: Setup database
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        run: |
           bundle exec rake db:create
           bundle exec rake db:migrate
-          bundle exec rails test
+      - name: Run tests
+        run: bundle exec rails test
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres

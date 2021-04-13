@@ -1,6 +1,6 @@
 # My Marvel World
 ## Apresentação
-O presente projeto implementa uma aplicação em que o usuário pode encontrar todas as informações sobre as comics e characters da marvel e favoritar tanto um como outro. Ele busca informações da [API disponibilizada pela Marvel] (developer.marvel.com).
+O presente projeto implementa uma aplicação em que o usuário pode encontrar todas as informações sobre as comics e characters da marvel e favoritar tanto um como outro. Ele busca informações da [API disponibilizada pela Marvel](developer.marvel.com).
 
 **Live link: https://my-marvel-world.herokuapp.com/**
 

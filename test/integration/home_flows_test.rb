@@ -10,7 +10,7 @@ class HomeFlowsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'form input' do
       assert_select "[name=character]"
-      assert_select "[name=comic]"
+      assert_select "[name=comics]"
     end
   end
 end

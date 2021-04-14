@@ -6,7 +6,7 @@ class ComicsFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test "should get list of Comic Books" do
-    get comics_path, params: {comic:"Adventures", button:""}
+    get comics_path, params: {comics:"Adventures", button:""}
     assert_equal 200, status
     assert_equal comics_path, path
     assert_select 'a'

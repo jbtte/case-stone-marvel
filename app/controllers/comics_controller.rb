@@ -2,7 +2,7 @@ class ComicsController < ApplicationController
   include ApiCall
 
   def index
-    @comics = find_comics(params[:comic])["data"]['results']
+    @comics = find_comics(params[:comics])["data"]['results']
   end
 
   def show

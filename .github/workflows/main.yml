@@ -42,7 +42,9 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:migrate
       - name: Run tests
-        run: bundle exec rails test
+        run: |
+          bundle exec rails test
+          bundle exec rails test:system
         env:
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}

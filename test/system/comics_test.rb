@@ -19,8 +19,10 @@ class ComicsTest < ApplicationSystemTestCase
     click_on "Adventures Of The X-Men: Tooth & Claw (Trade Paperback)"
     assert_text "Adventures Of The X-Men: Tooth & Claw (Trade Paperback)"
 
-    assert_selector(:css, '.not-favorited')
+    sleep 2
+
     assert_selector(:css, '.favorited', visible: :hidden)
+    assert_selector(:css, '.not-favorited')
 
     find(:css, '.far.fa-heart.fa-2x.heart-red').click
 
